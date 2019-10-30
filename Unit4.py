@@ -31,8 +31,6 @@ def getWordScore(word, n):
     count+=1
 """
 -----------------------------------------------------------------------------------------------
-"""
-"""
 Problem 2
 """
 def updateHand(hand, word):
@@ -59,5 +57,26 @@ def updateHand(hand, word):
     return hand_new
 """
 -----------------------------------------------------------------------------------------------
+Problem 3
 """
+def isValidWord(word, hand, wordList):
+    """
+    Returns True if word is in the wordList and is entirely
+    composed of letters in the hand. Otherwise, returns False.
 
+    Does not mutate hand or wordList.
+   
+    word: string
+    hand: dictionary (string -> int)
+    wordList: list of lowercase strings
+    """
+    
+    if word not in wordList:
+        return False
+    hand_new = hand.copy()
+    for w in word:
+        if hand_new.get(w, 0) > 0:
+            hand_new[w] -= 1
+        else:
+            return False
+    return True
