@@ -272,3 +272,10 @@ class CiphertextMessage(Message):
                 best_msg = decrypted_text
 
         return (best_shift, best_msg)
+"""
+-----------------------------------------------------------------------------------------------
+Problem 4
+"""
+def decrypt_story():
+    joke_code = CiphertextMessage(get_story_string())
+    return joke_code.decrypt_message()
